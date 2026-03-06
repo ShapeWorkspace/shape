@@ -1,0 +1,27 @@
+{
+  "name": "@shape/engine",
+  "version": "1.0.0",
+  "description": "TypeScript engine layer for Shape",
+  "main": "./application.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:int": "vitest run tests/v2/",
+    "test:integration": "vitest run tests/v2/"
+  },
+  "dependencies": {
+    "@protobuf-ts/runtime": "^2.11.1",
+    "libsodium-wrappers-sumo": "^0.7.15",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/libsodium-wrappers-sumo": "^0",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.0.2",
+    "vitest": "^3.2.4"
+  }
+}

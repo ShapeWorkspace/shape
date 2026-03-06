@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package entityblock;
+
+option go_package = "shape/models/entityblock";
+
+// EncryptedYjsDelta represents a single Yjs update encrypted with the entity's key.
+// Used for collaborative content editing (papers, notes, tasks, etc.).
+// The Yjs binary update is encrypted using XChaCha20-Poly1305 with the entity's key.
+message EncryptedYjsDelta {
+  bytes ciphertext = 1;  // Yjs update encrypted with entity key
+  bytes nonce = 2;       // 24-byte XChaCha20 nonce (unique per delta)
+}
+
+// Blocks groups multiple encrypted deltas for storage in EntityBlock.
+// When a client makes edits, deltas are aggregated (debounced 750ms) into a Blocks message
+// before being sent to the server. Other clients receive this block via SSE.
+message Blocks {
+  repeated EncryptedYjsDelta deltas = 1;
+}

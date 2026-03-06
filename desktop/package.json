@@ -1,0 +1,29 @@
+{
+  "name": "@shape/desktop",
+  "private": true,
+  "version": "0.1.6",
+  "type": "module",
+  "description": "Shape desktop and mobile application (Tauri)",
+  "license": "Custom",
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "icon": "tauri icon ./icon.png",
+    "ios:init": "tauri ios init",
+    "ios:dev": "tauri ios dev",
+    "ios:dev:local": "./scripts/ios-dev-local.sh",
+    "ios:sim": "tauri ios dev 'iPhone 16 Pro'",
+    "ios:build": "tauri ios build",
+    "ios:prod": "yarn workspace @shape/web build:mobile && tauri ios build",
+    "android:init": "tauri android init",
+    "android:dev": "tauri android dev",
+    "android:build": "tauri android build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.9.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.9.6"
+  }
+}

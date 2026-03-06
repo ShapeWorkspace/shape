@@ -1,0 +1,1 @@
+Processes are singletons which are constantly running and largely handle events. They should not be accessed directly.

@@ -1,0 +1,23 @@
+{
+  "name": "@shape/plugins",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "type": "module",
+  "dependencies": {
+    "@shape/engine": "workspace:*",
+    "@vanilla-extract/css": "^1.17.4",
+    "@vanilla-extract/recipes": "^0.5.7",
+    "@vanilla-extract/sprinkles": "^1.6.5",
+    "@vanilla-extract/vite-plugin": "*"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/parser": "^8.35.1",
+    "eslint": "^9.30.1",
+    "typescript": "^5.0.2",
+    "vite": "^5.0.0"
+  },
+  "packageManager": "yarn@4.9.2"
+}

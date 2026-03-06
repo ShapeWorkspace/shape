@@ -1,0 +1,3 @@
+# This file tells Fastlane which app + team to target.
+app_identifier("work.shape.shape")
+team_id(ENV.fetch("FASTLANE_TEAM_ID"))

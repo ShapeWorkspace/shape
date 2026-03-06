@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [".", "../engine", "../plugins"],
+  "exclude": [
+    "../plugins/docs/types/docs.ts",
+    "../plugins/**/*.test.ts",
+    "../plugins/**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "../engine/**/*.test.ts",
+    "../engine/**/*.test.tsx",
+    "../engine/**/*.spec.ts",
+    "../engine/**/*.spec.tsx",
+    "../node_modules/**/*",
+    "dist",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts",
+    "playwright.config.ts",
+    "tests/**/*"
+  ]
+}

@@ -1,0 +1,10 @@
+# Node
+node_modules/
+
+# Tauri build output
+src-tauri/target/
+# Keep generated mobile IDE projects checked in.
+
+# macOS
+.DS_Store
+

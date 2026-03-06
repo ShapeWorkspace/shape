@@ -1,0 +1,44 @@
+# Air configuration for Shape server
+# https://github.com/air-verse/air
+
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Run go mod tidy before building to handle any missing/mismatched dependencies.
+# This prevents air from getting stuck when go.mod needs tidying.
+# Kill whatever is listening on the PORT from .env so hot reloads don't collide.
+pre_cmd = ["sh -c 'set -a; [ -f .env ] && . .env; set +a; if [ -n \"$PORT\" ]; then lsof -ti:$PORT | xargs kill -9 2>/dev/null || true; fi'", "go mod tidy"]
+cmd = "go build -o ./tmp/main ."
+bin = "tmp/main"
+include_ext = ["go"]
+exclude_dir = ["tmp", "vendor"]
+exclude_regex = ["_test\\.go"]
+
+# CRITICAL: Stop running old binary when build errors occur.
+# This prevents the confusing behavior where a failed build
+# still appears to run the server (using the old binary).
+stop_on_error = true
+
+# Kill running process before starting new one
+send_interrupt = true
+kill_delay = 500
+
+delay = 100 # ms
+
+[log]
+time = false
+main_only = false
+
+[color]
+main = "magenta"
+watcher = "cyan"
+build = "yellow"
+runner = "green"
+
+[misc]
+clean_on_exit = true
+
+[screen]
+clear_on_rebuild = true
+keep_scroll = true

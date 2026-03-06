@@ -1,0 +1,1 @@
+export const DRAFT_TRANSIENT_WINDOW_MS = 5000

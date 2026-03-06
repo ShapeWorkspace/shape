@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "types": ["vitest/globals"],
+    "paths": {
+      "@/*": ["./*"],
+      "@shape/plugins/*": ["../plugins/*"]
+    }
+  },
+  "include": [".", "../engine", "../plugins", "tests/integration", "tests/playwright"],
+  "exclude": [
+    "../plugins/docs/types/docs.ts",
+    "../plugins/**/*.test.ts",
+    "../plugins/**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "../node_modules/**/*",
+    "dist",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts",
+    "playwright.config.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

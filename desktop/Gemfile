@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+
+# Fastlane handles iOS certificate + provisioning profile management via match.
+gem "fastlane", "~> 2.224"

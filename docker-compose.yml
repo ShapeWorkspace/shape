@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: conquer
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  minio:
+    image: minio/minio:latest
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio12345
+    ports:
+      - "9000:9000"
+      - "9001:9001" # Console
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9001"
+
+  createbuckets:
+    image: minio/mc:latest
+    depends_on:
+      - minio
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "sleep 5 &&
+       mc alias set local http://minio:9000 minio minio12345 &&
+       mc mb --ignore-existing local/avatars &&
+       mc mb --ignore-existing local/files &&
+       mc anonymous set download local/avatars &&
+       echo 'Buckets created successfully'"
+
+volumes:
+  pgdata:
+  minio-data:

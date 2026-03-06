@@ -1,0 +1,8 @@
+# Match repo containing signing certificates + profiles (encrypted).
+git_url(ENV.fetch("MATCH_GIT_URL"))
+
+# Use App Store distribution profiles for TestFlight.
+type("appstore")
+
+# Avoid editing or revoking assets unless explicitly needed.
+readonly(false)

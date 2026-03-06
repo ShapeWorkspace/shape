@@ -1,0 +1,5 @@
+# Build output
+/target
+
+# Generated icons (regenerate with `yarn workspace @shape/desktop icon`)
+/icons

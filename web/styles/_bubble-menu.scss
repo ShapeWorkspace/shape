@@ -1,0 +1,14 @@
+/**
+ * Styles for the TipTap bubble menu (floating toolbar).
+ * Used for contextual toolbars that appear when content is selected.
+ */
+
+.tiptap-bubble-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.25rem;
+  border-radius: var(--tt-radius-lg, 0.75rem);
+  box-shadow: var(--tt-shadow-elevated-md);
+  z-index: 50;
+}
